@@ -1,3 +1,5 @@
+const VERSION = 'v1.1';
+
 export default function Footer() {
   return (
     <footer style={{
@@ -27,10 +29,20 @@ export default function Footer() {
           </a>
           {' '}· 62 Lunn Avenue, Mount Wellington, Auckland
         </div>
-        <div style={{ display: 'flex', gap: '0.4rem' }}>
-          <div style={{ width: 6, height: 6, background: 'var(--red)', borderRadius: '50%' }} />
-          <div style={{ width: 6, height: 6, background: 'var(--dark-3)', borderRadius: '50%' }} />
-          <div style={{ width: 6, height: 6, background: 'var(--dark-3)', borderRadius: '50%' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <span style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '0.72rem',
+            color: 'var(--dark-3)',
+            letterSpacing: '0.06em',
+          }}>
+            {VERSION}
+          </span>
+          <div style={{ display: 'flex', gap: '0.4rem' }}>
+            <div style={{ width: 6, height: 6, background: 'var(--red)', borderRadius: '50%' }} />
+            <div style={{ width: 6, height: 6, background: 'var(--dark-3)', borderRadius: '50%' }} />
+            <div style={{ width: 6, height: 6, background: 'var(--dark-3)', borderRadius: '50%' }} />
+          </div>
         </div>
       </div>
     </footer>
