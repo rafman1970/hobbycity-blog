@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red:       #D92B2B;
+  --red-dark:  #B01E1E;
+  --red-light: #F04040;
+  --navy:      #1B2A4A;
+  --black:     #0D0D0D;
+  --dark:      #141414;
+  --dark-2:    #1E1E1E;
+  --dark-3:    #2A2A2A;
+  --grey:      #888888;
+  --grey-light:#AAAAAA;
+  --off-white: #F5F0EB;
+  --white:     #FFFFFF;
+  --gold:      #C9A84C;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+/* ── Prose ─────────────────────────────────────────────────────────────── */
+.prose-blog { font-size: 1.0625rem; line-height: 1.8; color: var(--off-white); }
+.prose-blog h1 { font-size: 2.25rem;  margin: 2rem 0 0.875rem; color: var(--white); }
+.prose-blog h2 { font-size: 1.75rem;  margin: 1.75rem 0 0.75rem; color: var(--white); }
+.prose-blog h3 { font-size: 1.375rem; margin: 1.5rem 0 0.5rem;  color: var(--off-white); }
+.prose-blog p  { margin: 0 0 1.25rem; }
+.prose-blog ul, .prose-blog ol { margin: 0 0 1.25rem 1.5rem; }
+.prose-blog li { margin-bottom: 0.4rem; }
+.prose-blog strong { color: var(--white); font-weight: 600; }
+.prose-blog em { color: var(--grey-light); font-style: italic; }
+.prose-blog a  { color: var(--red-light); text-decoration: underline; }
+.prose-blog a:hover { color: var(--white); }
+.prose-blog blockquote {
+  border-left: 3px solid var(--red);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--grey-light);
+  font-style: italic;
+}
+.prose-blog code {
+  background: var(--dark-2);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+  color: var(--gold);
+  font-family: monospace;
+}
+.prose-blog hr { border: none; border-top: 1px solid var(--dark-3); margin: 2rem 0; }
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.post-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(217,43,43,0.12); }
+
+/* ── Tag pill ──────────────────────────────────────────────────────────── */
+.tag-pill {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(217,43,43,0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--dark-3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red-dark); }
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.45s ease forwards; }
+
+/* stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0.05s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+.stagger > *:nth-child(2) { animation-delay: 0.12s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+.stagger > *:nth-child(3) { animation-delay: 0.19s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+.stagger > *:nth-child(4) { animation-delay: 0.26s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+.stagger > *:nth-child(5) { animation-delay: 0.33s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+.stagger > *:nth-child(6) { animation-delay: 0.40s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
