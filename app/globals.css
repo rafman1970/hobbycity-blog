@@ -104,3 +104,12 @@ h1, h2, h3, h4 {
 .stagger > *:nth-child(4) { animation-delay: 0.26s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
 .stagger > *:nth-child(5) { animation-delay: 0.33s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
 .stagger > *:nth-child(6) { animation-delay: 0.40s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeUp; animation-duration: 0.4s; }
+
+/* ── Sidebar / mobile filter layout ───────────────────────────────────────── */
+.mobile-filters  { display: none; }
+.desktop-sidebar { display: block; }
+
+@media (max-width: 768px) {
+  .mobile-filters  { display: block; }
+  .desktop-sidebar { display: none; }
+}
