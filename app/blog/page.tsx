@@ -8,12 +8,21 @@ import Footer from '@/components/Footer';
 export const revalidate = 60;
 
 // ── Build category counts from posts ─────────────────────────────────────────
-function buildCounts(posts: Post[]) {
+function buildCounts(posts: Post[], categories: Category[]) {
   const counts: Record<number, number> = {};
+
+  const increment = (id: number | null) => {
+    if (!id) return;
+    counts[id] = (counts[id] || 0) + 1;
+    // Also increment parent so top-level always shows
+    const cat = categories.find(c => c.id === id);
+    if (cat?.parent_id) counts[cat.parent_id] = (counts[cat.parent_id] || 0) + 1;
+  };
+
   for (const post of posts) {
-    if (post.subject_id)  counts[post.subject_id]  = (counts[post.subject_id]  || 0) + 1;
-    if (post.category_id) counts[post.category_id] = (counts[post.category_id] || 0) + 1;
-    if (post.level_id)    counts[post.level_id]    = (counts[post.level_id]    || 0) + 1;
+    increment(post.subject_id);
+    increment(post.category_id);
+    increment(post.level_id);
   }
   return counts;
 }
@@ -324,7 +333,7 @@ export default async function BlogIndex({
   }
 
   // Build counts from ALL published posts (not filtered)
-  const counts = buildCounts(allPosts);
+  const counts = buildCounts(allPosts, categories);
 
   // Filter posts client-side
   let posts = allPosts;
